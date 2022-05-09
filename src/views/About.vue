@@ -1,11 +1,11 @@
 <template>
 
   <header class="bg-header flex items-center justify-center h-screen pb-12">
-    <div class="font-serif mx-4 p-4 text-center md:p-8">
+    <div class="bg-transparent font-serif mx-4 p-4 text-center md:p-8">
       <p class="italic text-sm">
         November 1, 2019
       </p>
-      <h1 class="text-4xl uppercase">
+      <h1 class="text-5xl uppercase">
         Article Title
       </h1>
       <p class="text-lg">
@@ -55,7 +55,7 @@
 
   <div class="bg-quote container flex items-center justify-center h-screen mx-auto">
     <blockquote class="font-serif mx-4 p-4 text-center text-white md:p-8">
-      <p class="font-bold italic text-3xl">
+      <p class="font-bold italic text-3xl ">
         &ldquo;Large, bold pull quote. Hats. Very good.&rdquo;
       </p>
     </blockquote>
@@ -82,6 +82,7 @@
   background: url(https://picsum.photos/1920/1920/?random) center center no-repeat;
   background-attachment: fixed;
 }
+
 .bg-quote {
   background: url(https://picsum.photos/1600/1600/?random) center center no-repeat;
   background-attachment: fixed;
