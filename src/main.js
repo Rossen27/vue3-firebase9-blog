@@ -2,7 +2,6 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router';
 import store from './store'
-import LoadingComponent from '@/components/LoadingComponent'
 import { initializeApp } from "firebase/app"
 import { getFirestore, collection, serverTimestamp } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
@@ -36,4 +35,4 @@ const fileStorage = getStorage();
 export { timestamp, auth, fileStorage };
 export default blogsColRef;
 
-createApp(App).use(router).use(store).component('LoadingComponent', LoadingComponent).mount('#app')
+createApp(App).use(router).use(store).mount('#app')
