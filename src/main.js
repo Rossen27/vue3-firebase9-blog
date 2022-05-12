@@ -8,8 +8,7 @@ import { getAuth } from "firebase/auth";
 import { getStorage } from "firebase/storage";
 import "firebase/firestore";
 import './assets/tailwind.css'
-// loading component globalize
-import LoadingComponent from "@/components/LoadingComponent.vue";
+
 // const store = store;
 
 const firebaseConfig = {
@@ -36,4 +35,4 @@ const fileStorage = getStorage();
 export { timestamp, auth, fileStorage };
 export default blogsColRef;
 
-createApp(App).use(router).use(store).component('LoadingComponent', LoadingComponent).mount('#app')
+createApp(App).use(router).use(store).mount('#app')
