@@ -3,13 +3,13 @@
   <header class="bg-header flex items-center justify-center h-screen pb-12">
     <div class="bg-transparent font-serif mx-4 p-4 text-center md:p-8">
       <p class="italic text-sm">
-        November 1, 2019
+        November 27, 1990
       </p>
       <h1 class="text-5xl uppercase">
-        Article Title
+        ABOUT ME
       </h1>
       <p class="text-lg">
-        Author Name
+        Rossen
       </p>
     </div>
   </header>
