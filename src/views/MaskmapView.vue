@@ -1,11 +1,11 @@
 <template>
-    <Navbar class="sticky-top"></Navbar>
+  <Navbar class="sticky-top"></Navbar>
   <div id="app">
     <aside-menu @triggerMarkerPopup="openPopup" ref="menu" />
     <mask-map ref="map" />
     <light-box />
   </div>
-      <Footer class="sticky-bottom"></Footer>
+  <Footer class="sticky-bottom"></Footer>
 </template>
 <script setup>
 import Navbar from '@/components/Navbar.vue';
@@ -15,7 +15,7 @@ import Footer from '@/components/Footer.vue';
 import { mapActions } from 'vuex';
 import asideMenu from '@/components/asideMenu.vue';
 import lightBox from '@/components/lightbox.vue';
-import maskMap from '@/components/maskMap.vue'; 
+import maskMap from '@/components/maskMap.vue';
 
 export default {
   name: 'maskmap',
@@ -30,7 +30,7 @@ export default {
       this.$refs.map.triggerPopup(id);
     },
   },
-  mounted () {
+  mounted() {
     this.fetchLocations();
     this.fetchPharmacies();
   }
@@ -38,7 +38,6 @@ export default {
 </script>
 
 <style lang="scss" src="@/style.scss">
-
 </style>
 <style>
 #app {
@@ -53,7 +52,8 @@ export default {
 
 body {
   background-image: url("/Users/rossen/Desktop/vue3-firebase9-blog/src/assets/img/wave.svg");
-  background-repeat: no-repeat; /*使背景不重複*/
+  background-repeat: no-repeat;
+  /*使背景不重複*/
   background-position: center;
 }
 
