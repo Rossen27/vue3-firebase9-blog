@@ -29,9 +29,9 @@
                   Map</router-link>
               </li>
               <li>
-                <router-link to="/wheater"
+                <router-link to="/weater"
                   class="btn btn-ghost text-gray-400 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white">
-                  Wheater</router-link>
+                  Weater</router-link>
               </li>
             </ul>
           </li>
@@ -67,8 +67,8 @@
                 Map</router-link>
             </li>
             <li>
-              <router-link to="/wheater"
-                class="btn btn-ghost text-gray-400 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white">Wheater
+              <router-link to="/weater"
+                class="btn btn-ghost text-gray-400 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white">Weater
               </router-link>
             </li>
           </ul>
