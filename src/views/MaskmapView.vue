@@ -10,12 +10,13 @@
 <script setup>
 import Navbar from '@/components/Navbar.vue';
 import Footer from '@/components/Footer.vue';
-</script>
-<script>
-import { mapActions } from 'vuex';
 import asideMenu from '@/components/asideMenu.vue';
 import lightBox from '@/components/lightbox.vue';
 import maskMap from '@/components/maskMap.vue';
+</script>
+<script>
+import { mapActions } from 'vuex';
+
 
 export default {
   name: 'maskmap',
