@@ -1,11 +1,11 @@
 <template>
-  <Navbar class="sticky-top"></Navbar>
   <div id="app">
+    <Navbar class="sticky-top"></Navbar>
     <aside-menu @triggerMarkerPopup="openPopup" ref="menu" />
     <mask-map ref="map" />
     <light-box />
+    <Footer class="sticky-bottom"></Footer>
   </div>
-  <Footer class="sticky-bottom"></Footer>
 </template>
 <script setup>
 import Navbar from '@/components/Navbar.vue';
