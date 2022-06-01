@@ -78,6 +78,7 @@ export default createStore({
     setInfoBoxSid(state, payload) {
       state.infoBoxSid = payload;
     },
+    // 以下為Firebase
     userStateChange(state, payload) {
       state.user = payload;
     },
