@@ -16,6 +16,10 @@ const router = createRouter({
       component: () => import('@/views/MaskmapView.vue'),
     },
     {
+      path: '/wheater',
+      component: () => import('@/views/WheaterView.vue'),
+    },
+    {
       path: '/login',
       component: () => import('@/components/Login.vue'),
     },

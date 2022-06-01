@@ -28,9 +28,11 @@
                   class="btn btn-ghost text-gray-400 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white">Mask
                   Map</router-link>
               </li>
-              <li><a
-                  class="btn btn-ghost text-gray-400 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white">Submenu
-                  2</a></li>
+              <li>
+                <router-link to="/wheater"
+                  class="btn btn-ghost text-gray-400 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white">
+                  Wheater</router-link>
+              </li>
             </ul>
           </li>
           <li><a
@@ -64,9 +66,11 @@
                 class="btn btn-ghost text-gray-400 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white">Mask
                 Map</router-link>
             </li>
-            <li><a
-                class="btn btn-ghost text-gray-400 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white">Submenu
-                2</a></li>
+            <li>
+              <router-link to="/wheater"
+                class="btn btn-ghost text-gray-400 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white">Wheater
+              </router-link>
+            </li>
           </ul>
         </li>
         <li><a class="btn btn-ghost text-gray-400 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white">Blog</a>
