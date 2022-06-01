@@ -1,5 +1,4 @@
 <template>
-
   <header class="bg-header flex items-center justify-center h-screen pb-12">
     <div class="bg-gray-400/50 rounded-lg font-serif mx-4 p-4 text-center md:p-8">
       <p class="italic text-sm">

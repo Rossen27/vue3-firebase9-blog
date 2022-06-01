@@ -13,19 +13,18 @@ import Footer from '@/components/Footer.vue';
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  /* font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin: auto;
+  margin: auto; */
   /*參考網址：https://ithelp.ithome.com.tw/articles/10224362*/
 }
 
 body {
-  background-image: url("/Users/rossen/Desktop/vue3-firebase9-blog/src/assets/img/wave.svg");
   background-repeat: no-repeat; /*使背景不重複*/
-  background-position: center;
+  /* background-position: center; */
 }
 
 .sticky-footer {
