@@ -12,6 +12,10 @@ const router = createRouter({
       component: () => import('@/views/About.vue'),
     },
     {
+      path: '/maskmap',
+      component: () => import('@/views/MaskmapView.vue'),
+    },
+    {
       path: '/login',
       component: () => import('@/components/Login.vue'),
     },
