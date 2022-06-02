@@ -5,20 +5,12 @@ import db from '../main';
 import {
   collection,
   getDocs,
-  query,
   orderBy
 } from "firebase/firestore";
 
 export default createStore({
   state: {
     user: null,
-    boardMembers: [],
-    profilePhotoName: "",
-    profilePhotoURL: "",
-    profileName: "",
-    profilePhone: "",
-    profileEmail: "",
-    profileContent: "",
     // 使用者目前所選縣市, 預設值為 臺北市
     currCity: '臺北市',
     // 使用者目前所選行政區, 預設值為 北投區
@@ -79,27 +71,6 @@ export default createStore({
       state.infoBoxSid = payload;
     },
     // 以下為Firebase
-    userStateChange(state, payload) {
-      state.user = payload;
-    },
-    fileNameChange(state, payload) {
-      state.profilePhotoName = payload;
-    },
-    updateprofilePhotoURL(state, payload) {
-      state.profilePhotoURL = payload;
-    },
-    updateProfileName(state, payload) {
-      state.profileName = payload;
-    },
-    updateprofilePhone(state, payload) {
-      state.profilePhone = payload;
-    },
-    updateprofileEmail(state, payload) {
-      state.profileEmail = payload;
-    },
-    updateprofileContent(state, payload) {
-      state.profileContent = payload;
-    },
   },
   actions: {
     // 取得行政區資料
@@ -128,19 +99,6 @@ export default createStore({
 
       // 透過 commit 來操作 mutations
       commit('setStores', data);
-    },
-    async getBoardMembers({
-      state
-    }) {
-      const dataBase = await collection(db, "executiveBoard");
-      const dbResults = await getDocs(query(dataBase, orderBy("profileName")));
-      dbResults.docs.forEach((doc) => {
-        state.boardMembers.push({
-          ...doc.data(),
-          id: doc.id
-        });
-      });
-      console.log(this.state.boardMembers);
     },
   },
   modules: {},
