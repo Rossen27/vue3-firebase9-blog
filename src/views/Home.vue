@@ -6,7 +6,7 @@
       <div class="max-w-md">
         <h1 class="mb-5 text-5xl font-bold">Hello There</h1>
         <p class="mb-5">歡迎來到我的網頁</p>
-        <button class="btn glass">WELCOME</button>
+        <router-link to="/about"> <button class="btn glass">WELCOME</button></router-link>
       </div>
     </div>
   </div>

@@ -43,22 +43,6 @@
       assumenda quidem facere molestias vitae itaque
       soluta reprehenderit dolorem. Deserunt quibusdam, consequatur veniam fugiat ipsam aliquam ea possimus quis
       officiis enim dolores.</p>
-    <p class="mb-4 text-lg dark:text-gray-300 dark:hover:text-white">Exercitationem aperiam veniam perspiciatis iure ad
-      nobis necessitatibus cumque cupiditate
-      obcaecati natus. Neque nostrum maxime id veritatis tempore, a voluptate voluptatem et! A ullam id aliquam?
-      Recusandae deleniti odit fugit!</p>
-    <p class="mb-4 text-lg dark:text-gray-300 dark:hover:text-white">Beatae rerum obcaecati consectetur nostrum eos
-      ipsam, accusamus delectus ex maxime neque sit
-      quod repellendus voluptate sunt dolore hic explicabo ea dolorum vero vel quidem illo! Cupiditate sed voluptatibus
-      ullam?</p>
-    <p class="mb-4 text-lg dark:text-gray-300 dark:hover:text-white">Modi aliquam facilis adipisci! Soluta eveniet eos
-      omnis, inventore nesciunt, laborum
-      deserunt blanditiis nihil accusamus debitis voluptatibus possimus dolores vero maiores, sed voluptate ut! Facilis
-      possimus vitae consectetur praesentium veritatis.</p>
-    <p class="mb-4 text-lg dark:text-gray-300 dark:hover:text-white">Tempore, quaerat accusamus ad nostrum maiores
-      numquam, ea nam sed reiciendis, eveniet
-      perspiciatis. Eos nulla vel consectetur quo nesciunt aspernatur sint nemo cumque optio mollitia, veritatis,
-      tenetur quibusdam eum natus.</p>
   </div>
 
   <div class="bg-quote container flex items-center justify-center h-screen mx-auto">
