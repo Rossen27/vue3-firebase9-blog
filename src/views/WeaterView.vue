@@ -1,5 +1,5 @@
 <template>
-  <div id="app" :class="weather.main?.temp > 17 ? 'warm' : ''">
+  <div id="app" :class="weather?.main?.temp > 17 ? 'warm' : ''">
     <main>
       <div class="search-box">
         <input type="text" class="search-bar" placeholder="Search..." v-model="query" @keypress="fetchWeather" />
@@ -7,7 +7,7 @@
       <div class="weather-wrap" v-if="weather.main != 'undefined'">
         <div class="location-box">
           <div class="location">
-            {{ weather.name }}, {{ weather.sys.country }}
+            {{ weather.name }}
           </div>
           <div class="date">
             {{ dateBuilder() }}
@@ -17,7 +17,6 @@
           <div class="temp">
             {{ Math.round(weather.main.temp) }}°c
           </div>
-          <div class="weather">{{ weather.weather[0].main }}</div>
         </div>
       </div>
     </main>
@@ -28,14 +27,14 @@
 
 export default {
   name: "app",
-  date() {
+  data() {
     return {
       api_key: '803a7cd7089cd54e3ecc37bf1b6a3340',
       url_base: 'https://api.openweathermap.org/data/2.5/',
-      query: 'Taiwan',
+      query: '',
       weather: {
         main: {
-          temp: 17
+          temp: 0
         },
       },
     }
