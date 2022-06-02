@@ -7,7 +7,7 @@
       <div class="weather-wrap" v-if="weather.main != 'undefined'">
         <div class="location-box">
           <div class="location">
-            {{ weather.name }}
+            {{ weather.name}}
           </div>
           <div class="date">
             {{ dateBuilder() }}
@@ -17,6 +17,7 @@
           <div class="temp">
             {{ Math.round(weather.main.temp) }}°c
           </div>
+          <div class="weather">{{ weather.weather[0].main }}</div>
         </div>
       </div>
     </main>
@@ -32,6 +33,8 @@ export default {
       api_key: '803a7cd7089cd54e3ecc37bf1b6a3340',
       url_base: 'https://api.openweathermap.org/data/2.5/',
       query: '',
+      temp: '',
+      city: '',
       weather: {
         main: {
           temp: 0
