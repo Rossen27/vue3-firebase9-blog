@@ -1,5 +1,5 @@
 <template>
-  <div id="app" :class="weather.main?.temp > 17 ? 'warm' : ''">
+  <div id="app" :class="weather.main && weather.main.temp > 25 ? 'warm' : ''">
     <main>
       <div class="search-box">
         <input type="text" class="search-bar" placeholder="Search..." v-model="query" @keypress="fetchWeather" />
@@ -33,11 +33,7 @@ export default {
       api_key: '803a7cd7089cd54e3ecc37bf1b6a3340',
       url_base: 'https://api.openweathermap.org/data/2.5/',
       query: 'Taiwan',
-      weather: {
-        main: {
-          temp: 17
-        }
-      },
+      weather: {},
     }
   },
   methods: {
@@ -84,7 +80,7 @@ body {
   transition: .4s;
 }
 
-.warm {
+#app .warm {
   background-image: url('./src/assets/warm.jpg');
 }
 

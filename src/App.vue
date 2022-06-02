@@ -23,7 +23,8 @@ import Footer from '@/components/Footer.vue';
 }
 
 body {
-  background-repeat: no-repeat; /*使背景不重複*/
+  /* background-repeat: no-repeat;  */
+  /*使背景不重複*/
   /* background-position: center; */
 }
 
