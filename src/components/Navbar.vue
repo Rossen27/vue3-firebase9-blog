@@ -129,3 +129,10 @@ const handleSignOut = () => {
   });
 };
 </script>
+<style>
+.navbar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+</style>
