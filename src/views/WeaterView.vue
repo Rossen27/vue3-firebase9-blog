@@ -77,14 +77,14 @@ body {
 }
 
 #app {
-  background-image: url('./src/assets/cold.jpg');
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/vue3-firebase9-blog-45c59.appspot.com/o/WeaterView%2Fcold.jpg?alt=media&token=3fadb43d-1a27-4385-a60e-591574d13f4e');
   background-size: cover;
   background-position: center;
   transition: .4s;
 }
 
 #app .warm {
-  background-image: url('./src/assets/warm.jpg');
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/vue3-firebase9-blog-45c59.appspot.com/o/WeaterView%2Fwarm.jpg?alt=media&token=f6ea2605-ed27-4d69-835f-20e0612a34da');
 }
 
 main {
