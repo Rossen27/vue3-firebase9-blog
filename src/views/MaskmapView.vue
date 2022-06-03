@@ -10,9 +10,9 @@
 <script setup>
 import Navbar from '@/components/Navbar.vue';
 import Footer from '@/components/Footer.vue';
-import asideMenu from '@/components/asideMenu.vue';
-import lightBox from '@/components/lightbox.vue';
-import maskMap from '@/components/maskMap.vue';
+import asideMenu from '@/components/maskmap/asideMenu.vue';
+import lightBox from '@/components/maskmap/lightbox.vue';
+import maskMap from '@/components/maskmap/maskMap.vue';
 </script>
 <script>
 import { mapActions } from 'vuex';
