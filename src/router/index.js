@@ -27,6 +27,10 @@ const router = createRouter({
       component: () => import('@/components/Login.vue'),
     },
     {
+      path: "/cardscomponents",
+      component:() => import('@/components/Cardscomponents.vue'),
+    },
+    {
       path: "/add-city",
       component:() => import('@/components/Blog/AddCity.vue'),
     },

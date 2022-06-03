@@ -12,20 +12,15 @@
   </div>
   <div class="home">
     <h2>檔案名稱</h2>
-    <div class="container">
-      <div class="row">
+    <div class="">
+      <div class="">
         <div class="">
-          <ul class="list-group" v-if="isLoggedIn">
-            <li v-for="blog in blogs" :key="blog.id" class="
-                list-group-item
-                d-flex
-                justify-content-between
-                align-items-center
-              ">
-              {{ blog.title }}
-              <span class="badge badge-primary badge-pill">
-                <router-link :to="{ path: `/blogs/${blog.id}` }" class="btn ml-2">修改</router-link>
-                <a href="#" class="btn" @click="deleteBlog(blog.id)">刪除</a>
+          <ul class="" v-if="isLoggedIn">
+            <li v-for="blog in blogs" :key="blog.id" class="">
+              {{ blog.title }}{{ blog.text }}{{ blog.date }}
+              <span class="">
+                <router-link :to="{ path: `/blogs/${blog.id}` }" class="btn btn-glass">修改</router-link>
+                <a href="#" class="btn btn-glass" @click="deleteBlog(blog.id)">刪除</a>
               </span>
             </li>
           </ul>
