@@ -1,5 +1,5 @@
 <template>
-  <div id="app" :class="weather?.main?.temp > 17 ? 'warm' : ''">
+  <div id="app" :class="weather?.main?.temp > 23 ? 'warm' : ''">
     <main>
       <div class="search-box">
         <input type="text" class="search-bar" placeholder="Search..." v-model="query" @keypress="fetchWeather" />
@@ -7,7 +7,8 @@
       <div class="weather-wrap" v-if="weather.main != 'undefined'">
         <div class="location-box">
           <div class="location">
-            {{ weather.name}}
+            {{ weather.name }}
+            {{weather.sys.country}}
           </div>
           <div class="date">
             {{ dateBuilder() }}
@@ -17,7 +18,9 @@
           <div class="temp">
             {{ Math.round(weather.main.temp) }}°c
           </div>
-          <div class="weather">{{ weather.weather[0].main }}</div>
+          <div class="weather">
+            {{weather.weather.main}}
+          </div>
         </div>
       </div>
     </main>
@@ -36,8 +39,14 @@ export default {
       temp: '',
       city: '',
       weather: {
+        sys: {
+          country: '',
+        },
         main: {
           temp: 0
+        },
+        weather: {
+          main: '',
         },
       },
     }
