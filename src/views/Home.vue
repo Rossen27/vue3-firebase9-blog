@@ -4,8 +4,8 @@
     <div class="hero-overlay bg-opacity-60"></div>
     <div class="hero-content text-center text-neutral-content">
       <div class="max-w-md">
-        <h1 class="mb-5 text-5xl font-bold">Hello There</h1>
-        <p class="mb-5">歡迎來到我的網頁</p>
+        <h1 class="mb-5 text-5xl font-bold anaglyph">Hello There</h1>
+        <p class="mb-5 ">歡迎來到我的網頁</p>
         <router-link to="/about"> <button class="btn glass">WELCOME</button></router-link>
       </div>
     </div>
@@ -72,3 +72,13 @@ export default {
   },
 };
 </script>
+<style>
+/* .anaglyph {
+letter-spacing: 6px;
+text-shadow: red 0 0, cyan 0 0;
+transition: text-shadow 200ms;
+} */
+/* .anaglyph:hover {
+  text-shadow: red -6px 0, cyan 6px o;
+} */
+</style>
