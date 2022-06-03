@@ -35,8 +35,8 @@
               </li>
             </ul>
           </li>
-          <li><a
-              class="btn btn-ghost text-gray-400 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white">Blog</a>
+          <li><router-link to="/blog"
+              class="btn btn-ghost text-gray-400 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white">Blog</router-link>
           </li>
         </ul>
       </div>
@@ -73,7 +73,7 @@
             </li>
           </ul>
         </li>
-        <li><a class="btn btn-ghost text-gray-400 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white">Blog</a>
+        <li><router-link to="/blog" class="btn btn-ghost text-gray-400 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white">Blog</router-link>
         </li>
       </ul>
     </div>

@@ -14,8 +14,8 @@
     <h2>檔案名稱</h2>
     <div class="container">
       <div class="row">
-        <div class="col-md-6 offset-md-3">
-          <ul class="list-group">
+        <div class="">
+          <ul class="list-group" v-if="isLoggedIn">
             <li v-for="blog in blogs" :key="blog.id" class="
                 list-group-item
                 d-flex
@@ -24,8 +24,8 @@
               ">
               {{ blog.title }}
               <span class="badge badge-primary badge-pill">
-                <router-link :to="{ path: `/blogs/${blog.id}` }" class="btn btn-primary ml-2">修改</router-link>
-                <a href="#" class="btn btn-danger" @click="deleteBlog(blog.id)">刪除</a>
+                <router-link :to="{ path: `/blogs/${blog.id}` }" class="btn ml-2">修改</router-link>
+                <a href="#" class="btn" @click="deleteBlog(blog.id)">刪除</a>
               </span>
             </li>
           </ul>
@@ -34,6 +34,29 @@
     </div>
   </div>
 </template>
+<script setup>
+import { onMounted, ref } from 'vue';
+import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
+import { useRouter } from 'vue-router';
+const router = useRouter();
+const isLoggedIn = ref(false);
+let auth;
+onMounted(() => {
+  auth = getAuth();
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      isLoggedIn.value = true;
+    } else {
+      isLoggedIn.value = false;
+    }
+  });
+});
+const handleSignOut = () => {
+  signOut(auth).then(() => {
+    router.push("/");
+  });
+};
+</script>
 
 <script>
 import blogsColRef from "../main";
