@@ -10,23 +10,34 @@
       </div>
     </div>
   </div>
-  <div class="home">
-    <h2>檔案名稱</h2>
-    <div class="">
-      <div class="">
-        <div class="">
-          <ul class="" v-if="isLoggedIn">
-            <li v-for="blog in blogs" :key="blog.id" class="">
-              {{ blog.title }}{{ blog.text }}{{ blog.date }}
-              <span class="">
-                <router-link :to="{ path: `/blogs/${blog.id}` }" class="btn btn-glass">修改</router-link>
-                <a href="#" class="btn btn-glass" @click="deleteBlog(blog.id)">刪除</a>
-              </span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
+  <div class="overflow-x-auto">
+    <table class="table w-full">
+      <!-- head -->
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Text</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody v-for="blog in blogs" :key="blog.id">
+        <!-- row 1 -->
+        <tr>
+          <td>{{ blog.title }}</td>
+          <td>{{ blog.text }}</td>
+          <td>{{ blog.date }}</td>
+        </tr>
+        <tr class="flex w-full" v-if="isLoggedIn">
+          <td>
+            <router-link :to="{ path: `/blogs/${blog.id}` }"
+              class="grid h-20 flex-grow btn btn-glass btn-xs rounded-box place-items-center">修改</router-link>
+          </td>
+          <td class="divider divider-horizontal">OR</td>
+          <td class="grid h-20 flex-grow btn btn-glass btn-xs rounded-box place-items-center"
+            @click="deleteBlog(blog.id)">刪除</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 <script setup>
@@ -80,7 +91,7 @@ export default {
     async deleteBlog(blogId) {
       let blogRef = doc(blogsColRef, blogId);
       await deleteDoc(blogRef);
-      alert("Blog deleted successully!");
+      alert("文章刪除完成!");
       this.$router.go();
     },
   },
