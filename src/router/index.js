@@ -19,8 +19,8 @@ const router = createRouter({
       component: () => import('@/views/MaskmapView.vue'),
     },
     {
-      path: '/weater',
-      component: () => import('@/views/WeaterView.vue'),
+      path: '/weather',
+      component: () => import('@/views/WeatherView.vue'),
     },
     {
       path: '/login',
