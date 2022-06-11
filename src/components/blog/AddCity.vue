@@ -9,10 +9,10 @@
               <input type="text" class="form-control mb-2" placeholder="標題" v-model="title" />
             </div>
             <div class="form-group">
-              <input type="text" class="form-control mb-2" placeholder="副標題" v-model="text" />
+              <input type="text" class="form-control mb-2" placeholder="內文" v-model="text" />
             </div>
             <div class="form-group">
-              <input type="date" class="form-control mb-2" placeholder="內文" v-model="date" />
+              <input type="date" class="form-control mb-2" placeholder="日期" v-model="date" />
             </div>
             <button class="btn btn-primary">創建</button>
           </form>
