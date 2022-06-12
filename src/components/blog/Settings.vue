@@ -64,7 +64,7 @@
     </section>
     <!-- ////////// 添加表格 ////////// -->
     <!-- ////////// tabla ////////// -->
-    <div class="overflow-x-auto">
+    <div class="overflow-x-auto p-8">
       <table class="table w-full">
         <thead>
           <tr>

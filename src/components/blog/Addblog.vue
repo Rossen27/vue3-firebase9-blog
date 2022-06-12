@@ -1,62 +1,66 @@
 <template>
-  <div class="container p-8 mx-auto object-center" >
-    <section class="w-full max-w-2xl px-6 py-4 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
-      <h2 class="text-3xl font-semibold text-center text-gray-800 dark:text-white">Welcome to leave a message for me</h2>
-      <p class="mt-3 text-center text-gray-600 dark:text-gray-400">歡迎留言給我</p>
-      <div class="mt-6 ">
-        <div class="items-center -mx-2 md:flex">
-          <div class="w-full mx-2">
-            <label class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200">用戶名稱</label>
+  <div class="container p-8 mx-auto object-center">
+    <section class="w-full max-w-2xl px-6 py-4 mx-auto bg-white dark:bg-gray-800 border-4 border-slate-800 rounded-md shadow-xl p-4">
+      <div class="">
+        <h2 class="text-3xl font-semibold text-center text-gray-800 dark:text-white">Welcome to leave a message for me
+        </h2>
+        <p class="mt-3 text-center text-gray-600 dark:text-gray-400">歡迎留言給我</p>
+        <div class="mt-6 ">
+          <div class="items-center -mx-2 md:flex">
+            <div class="w-full mx-2">
+              <label class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200">用戶名稱</label>
 
-            <input
-              class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
-              type="text" v-model="usuario.nombre">
+              <input
+                class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                type="text" v-model="usuario.nombre">
+            </div>
+
+            <div class="w-full mx-2 mt-4 md:mt-0">
+              <label class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200">E-mail</label>
+
+              <input
+                class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                type="email" v-model="usuario.correo">
+            </div>
+            <div class="w-full mx-2 mt-4 md:mt-0">
+              <label class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200">Date</label>
+
+              <input
+                class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                type="date" v-model="date">
+            </div>
+          </div>
+          <label for="dropzone-file"
+            class="flex flex-col justify-center items-center w-full h-64 bg-gray-50 rounded-lg border-2 border-gray-300 border-dashed cursor-pointer dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+            <div class="flex flex-col justify-center items-center pt-5 pb-6">
+              <svg class="mb-3 w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+              </svg>
+              <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to
+                  upload</span> or drag and drop</p>
+              <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG</p>
+            </div>
+            <input id="dropzone-file" type="file" class="hidden" @change="buscarImagen($event)" />
+          </label>
+          <div class="w-full mt-4">
+            <label class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200">Message</label>
+
+            <textarea
+              class="block w-full h-40 px-4 py-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40"
+              v-model="usuario.message"></textarea>
           </div>
 
-          <div class="w-full mx-2 mt-4 md:mt-0">
-            <label class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200">E-mail</label>
-
-            <input
-              class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
-              type="email" v-model="usuario.correo">
+          <div class="flex justify-center mt-6">
+            <button
+              class="px-4 py-2 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600"
+              v-show="this.editar === false" @click.prevent="agregarDato()">Send
+              Message</button>
           </div>
-          <div class="w-full mx-2 mt-4 md:mt-0">
-            <label class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200">Date</label>
-
-            <input
-              class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
-              type="date" v-model="date">
-          </div>
+          <img :src="datoImagen">
         </div>
-        <label for="dropzone-file"
-          class="flex flex-col justify-center items-center w-full h-64 bg-gray-50 rounded-lg border-2 border-gray-300 border-dashed cursor-pointer dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
-          <div class="flex flex-col justify-center items-center pt-5 pb-6">
-            <svg class="mb-3 w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
-            </svg>
-            <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to
-                upload</span> or drag and drop</p>
-            <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG</p>
-          </div>
-          <input id="dropzone-file" type="file" class="hidden" @change="buscarImagen($event)" />
-        </label>
-        <div class="w-full mt-4">
-          <label class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200">Message</label>
 
-          <textarea
-            class="block w-full h-40 px-4 py-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40"
-            v-model="usuario.message"></textarea>
-        </div>
-
-        <div class="flex justify-center mt-6">
-          <button
-            class="px-4 py-2 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600"
-            v-show="this.editar === false" @click.prevent="agregarDato()">Send
-            Message</button>
-        </div>
-        <img :src="datoImagen">
       </div>
     </section>
   </div>

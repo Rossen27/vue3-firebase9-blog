@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-white w-full">
+  <footer class="bg-white dark:bg-gray-800 text-gray-400 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white w-full">
     <div class="max-w-screen-xl mx-auto px-4">
       <!-- <ul class="max-w-screen-md mx-auto text-lg font-light flex flex-wrap justify-between">
         <li class="my-2">
