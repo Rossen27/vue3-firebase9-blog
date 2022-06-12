@@ -27,7 +27,7 @@
 
               <input
                 class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
-                type="date" v-model="date">
+                type="date" v-model="usuario.date">
             </div>
           </div>
           <label for="dropzone-file"
@@ -102,11 +102,6 @@ export default {
         console.log(usuario)
       });
     },
-    // DELETE 
-    async eliminarDato(id) {
-      await deleteDoc(doc(db, "usuarios", id));
-      // router.go('/')
-    },
     // GET BY ID 
     async obtenerDatoID(id) {
       const docRef = doc(db, "usuarios", id);
@@ -148,6 +143,8 @@ export default {
         await addDoc(collection(db, "usuarios"), {
           nombre: this.usuario.nombre,
           correo: this.usuario.correo,
+          date: this.usuario.date,
+          message: this.usuario.message,
           foto: urlDescarga
         })
         this.error = '圖片上傳成功'

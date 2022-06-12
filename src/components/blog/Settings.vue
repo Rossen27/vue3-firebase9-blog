@@ -1,7 +1,8 @@
 <template>
   <div class="container mx-auto p-8 ">
     <section class="w-full max-w-2xl p-8 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
-      <h2 class="text-3xl font-semibold text-center text-gray-800 dark:text-white">Welcome to leave a message for me</h2>
+      <h2 class="text-3xl font-semibold text-center text-gray-800 dark:text-white">Welcome to leave a message for me
+      </h2>
       <p class="mt-3 text-center text-gray-600 dark:text-gray-400">歡迎留言給我</p>
       <div class="mt-6 ">
         <div class="items-center -mx-2 md:flex">
@@ -25,7 +26,7 @@
 
             <input
               class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
-              type="date" v-model="date">
+              type="date" v-model="usuario.date">
           </div>
         </div>
         <label for="dropzone-file"
@@ -178,6 +179,8 @@ export default {
         await addDoc(collection(db, "usuarios"), {
           nombre: this.usuario.nombre,
           correo: this.usuario.correo,
+          date: this.usuario.date,
+          message: this.usuario.message,
           foto: urlDescarga
         })
         this.error = '圖片上傳成功'
@@ -203,6 +206,8 @@ export default {
         await updateDoc(elemento, {
           nombre: this.usuario.nombre,
           correo: this.usuario.correo,
+          date: this.usuario.date,
+          message: this.usuario.message,
           foto: urlDescarga
         })
         this.error = '圖片上傳成功'
