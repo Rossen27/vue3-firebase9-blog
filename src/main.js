@@ -1,18 +1,16 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router';
-import store from './store'
-import { initializeApp } from "firebase/app"
-import { getFirestore, collection, serverTimestamp } from "firebase/firestore";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { getStorage } from "firebase/storage";
-import "firebase/firestore";
-import 'firebase/compat/storage';
-
+import store from './store';
 import './assets/tailwind.css'
 // loading component globalize
 import LoadingComponent from "../src/components/LoadingComponent.vue";
-// const store = store;
+
+import { initializeApp } from "firebase/app";
+import { getFirestore } from 'firebase/firestore/lite';
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/storage';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDePDusOpQqjt15O-9FmzLT58t3c-Y6dhg",
@@ -24,10 +22,14 @@ const firebaseConfig = {
   appId: "1:450269643625:web:4132182bfc55be4f79b3f8",
   measurementId: "G-3Z7YJJN7T0"
 };
-initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig)
+var storage = firebase.storage();
 
-// 讓資料可傳送至Firebase
-const db = getFirestore();
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+export { db, storage };
+
 const auth = getAuth();
 onAuthStateChanged(auth, (user) => {
   if (user) {
@@ -46,14 +48,7 @@ onAuthStateChanged(auth, (user) => {
     // ...
   } 
 });
-const timestamp = serverTimestamp()
-const blogsColRef = collection(db, "blogs");
-// const videoColRef = collection(db, "video");
-// const caseColRef = collection(db, "case");
-// const publicationColRef = collection(db, "publication");
-const fileStorage = getStorage();
-export { timestamp, auth, fileStorage };
-export default blogsColRef;
+
 
 
 createApp(App).use(router).use(store).component('LoadingComponent', LoadingComponent).mount('#app')

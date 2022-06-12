@@ -10,6 +10,7 @@ import {
 
 export default createStore({
   state: {
+    usuario: null,
     user: null,
     // 使用者目前所選縣市, 預設值為 臺北市
     currCity: '臺北市',
@@ -25,6 +26,14 @@ export default createStore({
   },
 
   getters: {
+      // 如果用戶存在則返回首頁
+      existeUsuario(state){
+        if(state.usuario === null){
+          return false;
+        }else{
+          return true;
+        }
+      },
     cityList(state) {
       // 城市
       return state.location.map((d) => d.name);
@@ -49,6 +58,9 @@ export default createStore({
     },
   },
   mutations: {
+    setUsuario(state, payload){
+      state.usuario = payload
+    },
     setcurrCity(state, payload) {
       state.currCity = payload;
     },
@@ -73,6 +85,10 @@ export default createStore({
     // 以下為Firebase
   },
   actions: {
+    // 從 onAuthStateChanged 接收數據(main.js)
+    detectarUsuario({commit}, usuario){
+      commit('setUsuario', usuario)
+    },
     // 取得行政區資料
     async fetchLocations({
       commit

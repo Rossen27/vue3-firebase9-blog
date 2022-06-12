@@ -10,34 +10,18 @@
       </div>
     </div>
   </div>
-  <div class="overflow-x-auto">
-    <table class="table w-full">
-      <!-- head -->
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Text</th>
-          <th>Date</th>
-        </tr>
-      </thead>
-      <tbody v-for="blog in blogs" :key="blog.id">
-        <!-- row 1 -->
-        <tr>
-          <td>{{ blog.title }}</td>
-          <td>{{ blog.text }}</td>
-          <td>{{ blog.date }}</td>
-        </tr>
-        <tr class="flex w-full" v-if="isLoggedIn">
-          <td>
-            <router-link :to="{ path: `/blogs/${blog.id}` }"
-              class="grid h-20 flex-grow btn btn-glass btn-xs rounded-box place-items-center">修改</router-link>
-          </td>
-          <td class="divider divider-horizontal">OR</td>
-          <td class="grid h-20 flex-grow btn btn-glass btn-xs rounded-box place-items-center"
-            @click="deleteBlog(blog.id)">刪除</td>
-        </tr>
-      </tbody>
-    </table>
+
+  <div class="container mx-auto">
+    <div class="flex flex-wrap columns-3 py-8">
+      <div class="px-8 max-w-xs mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800"
+        v-for="(item, index) in usuarios" :key="index">
+        <img class="object-cover rounded w-full h-56" :src="item.foto" alt="avatar">
+        <div class="py-5 text-center">
+          <h4 href="#" class="block text-2xl font-bold text-gray-800 dark:text-white">{{ item.nombre }}</h4>
+          <span class="text-sm text-gray-700 dark:text-gray-200">{{ item.correo }}</span>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <script setup>
@@ -65,41 +49,37 @@ const handleSignOut = () => {
 </script>
 
 <script>
-import blogsColRef from "../main";
-import { getDocs, doc, deleteDoc } from "firebase/firestore";
+import { collection, getDocs } from 'firebase/firestore/lite';
+import { db } from "../main";
 export default {
-  name: "Home",
-  components: {},
+  name: 'Home',
   data() {
     return {
-      blogs: [],
-      selectedDoc: null,
-    };
+      usuarios: [],
+      usuario: {
+        nombre: '',
+        correo: '',
+        foto: '',
+        date: ''
+      }
+    }
   },
   methods: {
-    async fetchBlogs() {
-      let blogsSnapShot = await getDocs(blogsColRef);
-      let blogs = [];
-      blogsSnapShot.forEach((blog) => {
-        let blogData = blog.data();
-        blogData.id = blog.id;
-        blogs.push(blogData);
+    // GET
+    async obtenerDatos() {
+      const querySnapshot = await getDocs(collection(db, "usuarios"));
+      querySnapshot.forEach((doc) => {
+        let usuario = doc.data()
+        usuario.id = doc.id
+        this.usuarios.push(usuario)
+        console.log(usuario)
       });
-      console.log(blogs);
-      this.blogs = blogs;
-    },
-    async deleteBlog(blogId) {
-      let blogRef = doc(blogsColRef, blogId);
-      await deleteDoc(blogRef);
-      alert("文章刪除完成!");
-      this.$router.go();
-    },
+    }
   },
-
-  created() {
-    this.fetchBlogs();
+  mounted() {
+    this.obtenerDatos();
   },
-};
+}
 </script>
 <style>
 /* .anaglyph {
