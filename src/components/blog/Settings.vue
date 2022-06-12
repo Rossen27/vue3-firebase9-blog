@@ -118,7 +118,7 @@ export default {
         nombre: '',
         correo: '',
         foto: '',
-        date: Timestamp.now().toDate(),
+        date: '',
         message: '',
       }
     }
