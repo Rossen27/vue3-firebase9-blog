@@ -87,7 +87,7 @@ export default {
         nombre: '',
         correo: '',
         foto: '',
-        date: '',
+        date: Timestamp.now().toDate(),
         message: '',
       }
     }
