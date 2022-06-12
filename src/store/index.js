@@ -1,12 +1,12 @@
 import {
   createStore
 } from "vuex";
-import db from '../main';
-import {
-  collection,
-  getDocs,
-  orderBy
-} from "firebase/firestore";
+// import db from '../main';
+// import {
+//   collection,
+//   getDocs,
+//   orderBy
+// } from "firebase/firestore";
 
 export default createStore({
   state: {

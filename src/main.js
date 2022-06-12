@@ -4,9 +4,11 @@ import router from './router';
 import store from './store'
 import { initializeApp } from "firebase/app"
 import { getFirestore, collection, serverTimestamp } from "firebase/firestore";
-import { getAuth } from "firebase/auth";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { getStorage } from "firebase/storage";
 import "firebase/firestore";
+import 'firebase/compat/storage';
+
 import './assets/tailwind.css'
 // loading component globalize
 import LoadingComponent from "../src/components/LoadingComponent.vue";
@@ -26,7 +28,24 @@ initializeApp(firebaseConfig);
 
 // 讓資料可傳送至Firebase
 const db = getFirestore();
-const auth = getAuth()
+const auth = getAuth();
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    console.log(user)
+      const usuarioActivo ={
+        email: user.email,
+        uid: user.uid
+      }
+    store.dispatch('detectarUsuario', usuarioActivo)
+    console.log(usuarioActivo)
+    // ...
+  } else {
+    console.log(user)
+    store.dispatch('detectarUsuario', user)
+    // User is signed out
+    // ...
+  } 
+});
 const timestamp = serverTimestamp()
 const blogsColRef = collection(db, "blogs");
 // const videoColRef = collection(db, "video");
@@ -35,5 +54,6 @@ const blogsColRef = collection(db, "blogs");
 const fileStorage = getStorage();
 export { timestamp, auth, fileStorage };
 export default blogsColRef;
+
 
 createApp(App).use(router).use(store).component('LoadingComponent', LoadingComponent).mount('#app')
