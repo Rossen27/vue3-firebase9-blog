@@ -11,12 +11,12 @@
     </div>
   </div>
 
-  <div class="container mx-auto">
-    <div class="flex flex-wrap columns-3 py-8">
-      <div class="px-8 max-w-xs mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800"
+  <div class="container mx-auto p-8">
+    <div class="flex flex-wrap columns-3 p-8">
+      <div class="p-8 max-w-xs mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800"
         v-for="(item, index) in usuarios" :key="index">
         <img class="object-cover rounded w-full h-56" :src="item.foto" alt="avatar">
-        <div class="py-5 text-center">
+        <div class="p-8 text-center">
           <h4 href="#" class="block text-2xl font-bold text-gray-800 dark:text-white">{{ item.nombre }}</h4>
           <span class="text-sm text-gray-700 dark:text-gray-200">{{ item.correo }}</span>
         </div>

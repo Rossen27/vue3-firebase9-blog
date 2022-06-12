@@ -1,10 +1,8 @@
 <template>
-
   <div id="app">
-    <Addcity />
+      <Addblog />
   </div>
-
 </template>
 <script setup>
-import Addcity from '@/components/blog/Addcity.vue';
+import Addblog from '@/components/blog/Addblog.vue';
 </script>

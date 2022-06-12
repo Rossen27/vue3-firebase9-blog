@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar">
+  <div class="navbar bg-base-100/50">
     <div class="navbar-start">
       <div class="dropdown">
         <label tabindex="0" class="btn btn-ghost lg:hidden">
@@ -88,17 +88,17 @@
         <ul tabindex="0" class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
           <li v-if="isLoggedIn">
             <button
-              class="btn btn-ghost linkStyle py-3 text-gray-400 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white">Settings</button>
+              class="btn btn-ghost linkStyle py-3 text-gray-400 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white"><router-link to="/settings">Settings</router-link></button>
           </li>
           <li v-if="isLoggedIn">
             <button
               class="btn btn-ghost linkStyle py-3 text-gray-400 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white"
-              @click="handleSignOut"> Log Out </button>
+              @click="handleSignOut"> Sign Out </button>
           </li>
           <li v-else="isLoggedIn">
             <button
               class="btn btn-ghost linkStyle py-3 text-gray-400 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white">
-              <router-link to="/login"> Log In </router-link>
+              <router-link to="/login"> Sign In </router-link>
             </button>
           </li>
         </ul>

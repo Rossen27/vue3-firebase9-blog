@@ -31,8 +31,12 @@ const router = createRouter({
       component:() => import('@/components/Cardscomponents.vue'),
     },
     {
-      path: "/add-city",
-      component:() => import('@/components/Blog/AddCity.vue'),
+      path: "/settings",
+      component:() => import('@/components/Blog/Settings.vue'),
+    },
+    {
+      path: "/add-blog",
+      component:() => import('@/components/Blog/Addblog.vue'),
     },
     {
       path: "/blogs/:blogId",
@@ -41,9 +45,9 @@ const router = createRouter({
     {
       path: "/blog",
       component: () => import("@/views/BlogView.vue"),
-      meta: {
-        requiresAuth: true,
-      },
+      // meta: {
+      //   requiresAuth: true,
+      // },
     },
   ]
 });

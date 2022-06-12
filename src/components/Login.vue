@@ -9,7 +9,7 @@
 			<input type="text" name="username" placeholder="Username" autocomplete="off" class="shadow-md border w-full h-10 px-3 py-2 text-gray-500 focus:outline-none focus:border-gray-500 mb-3 rounded" v-model="email">
 			<input type="password" name="password" placeholder="Password" autocomplete="off" class="shadow-md border w-full h-10 px-3 py-2 text-gray-500 focus:outline-none focus:border-gray-500 mb-3 rounded" v-model="password">
       <p v-if="errMsg">{{ errMsg }}</p>
-			<button class="bg-gray-500 hover:bg-gray-600 text-white px-3 py-1 rounded text-lg focus:outline-none shadow" @click="register">Log In</button>
+			<button class="bg-gray-500 hover:bg-gray-600 text-white px-3 py-1 rounded text-lg focus:outline-none shadow" @click="register">Sign In</button>
 		</div>
 	</div>
 </div>

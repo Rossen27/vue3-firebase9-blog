@@ -1,42 +1,8 @@
 <template>
-  <div class="px-6 py-4">
+  <div class="container p-8 mx-auto object-center" >
     <section class="w-full max-w-2xl px-6 py-4 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
       <h2 class="text-3xl font-semibold text-center text-gray-800 dark:text-white">Welcome to leave a message for me</h2>
       <p class="mt-3 text-center text-gray-600 dark:text-gray-400">歡迎留言給我</p>
-
-      <!-- <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 md:grid-cols-3">
-        <a href="#"
-          class="flex flex-col items-center px-4 py-3 text-gray-700 transition-colors duration-200 transform rounded-md dark:text-gray-200 hover:bg-blue-200 dark:hover:bg-blue-500">
-          <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd"
-              d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-              clip-rule="evenodd" />
-          </svg>
-
-          <span class="mt-2">Keelung, TW</span>
-        </a>
-
-        <a href="#"
-          class="flex flex-col items-center px-4 py-3 text-gray-700 transition-colors duration-200 transform rounded-md dark:text-gray-200 hover:bg-blue-200 dark:hover:bg-blue-500">
-          <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-            <path
-              d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-          </svg>
-
-          <span class="mt-2">0988-056-208</span>
-        </a>
-
-        <a href="#"
-          class="flex flex-col items-center px-4 py-3 text-gray-700 transition-colors duration-200 transform rounded-md dark:text-gray-200 hover:bg-blue-200 dark:hover:bg-blue-500">
-          <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-          </svg>
-
-          <span class="mt-2">jetso1127@gmail.com</span>
-        </a>
-      </div> -->
-
       <div class="mt-6 ">
         <div class="items-center -mx-2 md:flex">
           <div class="w-full mx-2">
@@ -87,46 +53,12 @@
         <div class="flex justify-center mt-6">
           <button
             class="px-4 py-2 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600"
-            v-show="this.editar === true" @click.prevent="actualizarDato(id)">Updata</button>
-          <button
-            class="px-4 py-2 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600"
             v-show="this.editar === false" @click.prevent="agregarDato()">Send
             Message</button>
         </div>
         <img :src="datoImagen">
       </div>
     </section>
-    <!-- ////////// 添加表格 ////////// -->
-    <!-- ////////// tabla ////////// -->
-    <div class="overflow-x-auto">
-      <table class="table w-full">
-        <thead>
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">用戶名稱</th>
-            <th scope="col">Email</th>
-            <th scope="col">編輯</th>
-            <th scope="col">DELETE</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(item, index) in usuarios" :key="index" class="bg-gray-200 hover">
-            <th scope="row">{{ index }}</th>
-            <td>{{ item.nombre }}</td>
-            <td>{{ item.correo }}</td>
-            <td>
-              <button @click.prevent="obtenerDatoID(item.id); this.editar = !this.editar;"
-                class="btn btn-active btn-ghost btn-sm">編輯
-              </button>
-            </td>
-            <td>
-              <button @click.prevent="eliminarDato(item.id)" class="btn btn-outline btn-error btn-sm">DELETE
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
   </div>
 </template>
 
@@ -226,30 +158,6 @@ export default {
       }
     },
 
-    // Update
-    async actualizarDato() {
-      try {
-        this.loading = true
-        var storageRef = firebase.storage().ref();
-        await storageRef.child('imagenes').child(this.file.name).put(this.file)
-        const urlDescarga = await storageRef.child('imagenes').child(this.file.name).getDownloadURL()
-        const elemento = doc(db, "usuarios", this.usuario.id)
-        await updateDoc(elemento, {
-          nombre: this.usuario.nombre,
-          correo: this.usuario.correo,
-          foto: urlDescarga
-        })
-        this.error = '圖片上傳成功'
-        this.file = null
-      }
-      catch (error) {
-        console.log(error);
-      }
-      finally {
-        router.push('/')
-        this.loading = false
-      }
-    }
   },
   mounted() {
     this.obtenerDatos();

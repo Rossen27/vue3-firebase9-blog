@@ -4,8 +4,8 @@ import Footer from '@/components/Footer.vue';
 </script>
 
 <template>
-  <div class="sticky-footer">
     <Navbar class="sticky-top"></Navbar>
+  <div class="sticky-footer">
     <router-view />
     <Footer class="sticky-bottom"></Footer>
   </div>
@@ -31,7 +31,7 @@ body {
 .sticky-footer {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: auto;
   /* body設為100%的視窗高 */
 }
 
