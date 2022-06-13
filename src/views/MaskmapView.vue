@@ -1,15 +1,11 @@
 <template>
   <div id="app">
-    <Navbar class="sticky-top"></Navbar>
     <aside-menu @triggerMarkerPopup="openPopup" ref="menu" />
     <mask-map ref="map" />
     <light-box />
-    <Footer class="sticky-bottom"></Footer>
   </div>
 </template>
 <script setup>
-import Navbar from '@/components/Navbar.vue';
-import Footer from '@/components/Footer.vue';
 import asideMenu from '@/components/maskmap/asideMenu.vue';
 import lightBox from '@/components/maskmap/lightbox.vue';
 import maskMap from '@/components/maskmap/maskMap.vue';
