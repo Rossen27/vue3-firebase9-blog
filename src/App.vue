@@ -4,7 +4,7 @@ import Footer from '@/components/Footer.vue';
 </script>
 
 <template>
-    <Navbar class="sticky-top"></Navbar>
+  <Navbar class="sticky-top"></Navbar>
   <div class="sticky-footer">
     <router-view />
     <Footer class="sticky-bottom"></Footer>
